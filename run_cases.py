@@ -16,14 +16,16 @@ def login(c, username, password):
     c.post(login_url, data=payload, headers={'REFERER': 'https://run.codes/'})  
 
 '''
+
 _function: find_cases_number(url, c)
 _parameters: url of the exercise, c
 _return: list with the end of the urls of each test case
+
 '''
 def find_cases_number(url, c):
     urls_end = []                                       #end of urls list
     page = c.get(url)                                   
-    soup = BeautifulSoup(page.content)
+    soup =BeautifulSoup(page.content)
     for option in soup.find_all('option'): #elements with the tag option have the urls end
         if option['value'].encode('ascii') != '-1': #-1 is the "choose an option" option
             urls_end.append(option['value'].encode("ascii"))    
@@ -83,3 +85,5 @@ with requests.Session() as c:
         print("Baixando caso %s" % idx)
         download_cases(c, url, current_dir, idx, essay_number)
     print("Todos os arquivos foram baixados.")
+    
+    # Testing pep8 speaks
