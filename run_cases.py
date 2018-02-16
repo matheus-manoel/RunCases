@@ -83,3 +83,5 @@ with requests.Session() as c:
         print("Baixando caso %s" % idx)
         download_cases(c, url, current_dir, idx, essay_number)
     print("Todos os arquivos foram baixados.")
+    
+    # Testing pep8 speaks
